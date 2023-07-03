@@ -1,5 +1,5 @@
 {
-  "name": "rrule",
+  "name": "rrule-utc",
   "version": "2.7.2",
   "description": "JavaScript library for working with recurrence rules for calendar dates.",
   "homepage": "http://jakubroztocil.github.io/rrule/",
@@ -21,7 +21,8 @@
   },
   "scripts": {
     "prebuild": "yarn clean",
-    "build": "yarn lint && yarn format-check && tsc -b tsconfig.build.json && webpack && tsc dist/esm/**/*.d.ts",
+    "build": "yarn lint && yarn format-check && tsc -b tsconfig.build.json && webpack",
+    "convert": "tsc dist/esm/**/*.d.ts",
     "clean": "rm -rf dist/",
     "lint": "yarn eslint . --fix --config .eslintrc.js",
     "format": "yarn prettier --write .",
@@ -86,5 +87,11 @@
   "peerDependencies": {},
   "dependencies": {
     "tslib": "^2.4.0"
+  },
+  "bugs": {
+    "url": "https://github.com/jakubroztocil/rrule/issues"
+  },
+  "directories": {
+    "test": "test"
   }
 }

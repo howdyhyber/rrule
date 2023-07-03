@@ -105,11 +105,11 @@ export const toOrdinal = function (date: Date) {
  * @see - <http://docs.python.org/library/datetime.html#datetime.date.fromordinal>
  */
 export const fromOrdinal = function (ordinal: number) {
-  let superstart = ORDINAL_BASE;
-  superstart.setHours(0,0,0,0);
-  let date_retval = new Date(ORDINAL_BASE.getTime() + ordinal * ONE_DAY);
-  date_retval.setHours(0,0,0,0);
-  return date_retval;
+  const superstart = ORDINAL_BASE
+  superstart.setHours(0, 0, 0, 0)
+  const date_retval = new Date(ORDINAL_BASE.getTime() + ordinal * ONE_DAY)
+  date_retval.setHours(0, 0, 0, 0)
+  return date_retval
 }
 
 export const getMonthDays = function (date: Date) {
@@ -143,7 +143,9 @@ export const combine = function (date: Date, time: Date | Time) {
     Date.UTC(
       date.getUTCFullYear(),
       date.getUTCMonth(),
-      (time.getHours() >= 16 && time.getHours() <= 23 ? date.getUTCDate() : date.getUTCDate() + 1),
+      time.getHours() >= 16 && time.getHours() <= 23
+        ? date.getUTCDate()
+        : date.getUTCDate() + 1,
       time.getHours(),
       time.getMinutes(),
       time.getSeconds(),
